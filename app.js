@@ -5,6 +5,8 @@ var app = express()
 
 app.use(bodyParser.json())
 
+
+//catch JSON Parsing error (SyntaxError)
 app.use(function (error, req, res, next) {
   if (error instanceof SyntaxError) {
       return res.status(400).send(errorMessage);
